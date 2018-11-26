@@ -1,0 +1,11 @@
+rel
+bin
+data
+tmp
+.idea/*
+.idea/
+ldata/queue.db
+services_test/ldata/queue.db
+logs
+*.pyc
+
