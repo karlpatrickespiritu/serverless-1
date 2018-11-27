@@ -16,11 +16,11 @@ import (
 type Response events.APIGatewayProxyResponse
 
 // Handler is our lambda handler invoked by the `lambda.Start` function call
-func Handler(ctx context.Context) (Response, error) {
+func GetOpenOrders(ctx context.Context) (Response, error) {
 	var buf bytes.Buffer
 
 	body, err := json.Marshal(map[string]interface{}{
-		"message": "Go Serverless v1.0! Your function executed successfully!",
+		"message": "Hello! This will be your open orders.",
 	})
 	if err != nil {
 		return Response{StatusCode: 404}, err
@@ -33,7 +33,7 @@ func Handler(ctx context.Context) (Response, error) {
 		Body:            buf.String(),
 		Headers: map[string]string{
 			"Content-Type":           "application/json",
-			"X-MyCompany-Func-Reply": "hello-handler",
+			"X-MyCompany-Func-Reply": "open-orders-handler",
 		},
 	}
 
@@ -41,5 +41,5 @@ func Handler(ctx context.Context) (Response, error) {
 }
 
 func main() {
-	lambda.Start(Handler)
+	lambda.Start(GetOpenOrders)
 }
